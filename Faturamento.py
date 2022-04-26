@@ -20,6 +20,7 @@ addValorVar = StringVar()
 addTipoVar = StringVar()
 addDataVar = StringVar()
 addTipoServVar = StringVar() #Tipo do serviço selecionado na combo box
+addQtdVar = StringVar()
 
 #####################################
 #combobox lista de itens de serviço
@@ -29,11 +30,13 @@ itemVariable.set = (options[0])
 
 ##############################################################################################
 def adminLogin():
+    window.geometry("500x300")
+
     titleLabel = Label(window, text ="SISTEMA DE FATURAMENTO", font="arial 20", fg="red")
     titleLabel.grid(row=0, column=0, columnspan=4, padx=(40,0), pady=(10,0))
 
     loginLabel = Label(window,text="Acessando ao sistema:", font="arial 10")
-    loginLabel.grid(row=1,column=2, padx=(50,0), columnspan=2, pady=10)
+    loginLabel.grid(row=1,column=2, padx=(50,0), pady=10)
 
     userLabel = Label(window, text="Usuário:")
     userLabel.grid(row=2, column=2, padx=20, pady=10)
@@ -48,10 +51,10 @@ def adminLogin():
     senhaEntry.grid(row=3, column=3, padx=20, pady=10)
 
     loginButton = Button(window,text="Acessar", width=8, height=2)
-    loginButton.grid(row=4, column=2, padx=20, pady=10, columnspan=2)
+    loginButton.grid(row=4, column=2, padx=20, pady=10)
 
     botaoSair = Button(window, text="Sair", width=8, height=2)
-    botaoSair.grid(row=4, column=3, padx=20, pady=10, columnspan=2) #command=(sair)
+    botaoSair.grid(row=4, column=3, padx=20, pady=10) #command=(sair)
 ##################################################################################################
 def mainWindow():#Tela de adicionar produtos / serviços
     titleLabel = Label(window, text ="SISTEMA DE FATURAMENTO", font="arial 20", fg="green")
@@ -96,25 +99,34 @@ def addItem():
     tipoDoProdLabel = Label(window, text="Tipo do Produto:", font="arial 10")
     tipoDoProdLabel.grid(row=1, column=4, pady=10)
 
+    addQtdLabel = Label(window, text="Quantidade:", font="arial 10")
+    addQtdLabel.grid(row=1, column=5, pady=10)
+
     nomeProdEntry = Entry(window, textvariable=addItemNomeVar)
     nomeProdEntry.grid(row=2, column=1, padx=20, pady=10)
 
     valorProdEntry = Entry(window, textvariable=addValorVar)
     valorProdEntry.grid(row=2, column=2, padx=20, pady=10)
 
-    dataProdEntry = Entry(window, textvariable=addValorVar)
+    dataProdEntry = Entry(window, textvariable=addDataVar)
     dataProdEntry.grid(row=2, column=3, padx=20, pady=10)
 
-    salvarButton = Button(window,text="Salvar", width=8, height=2)
+    tipoSerEntry = Entry(window, textvariable=addTipoServVar)
+    tipoSerEntry.grid(row=2, column=4, padx=20, pady=10)
+
+    quantEntry = Entry(window, textvariable=addQtdVar)
+    quantEntry.grid(row=2, column=5, padx=8, pady=10)
+
+    salvarButton = Button(window,text="Salvar", width=8, height=2, font="arial 12")
     salvarButton.grid(row=6, column=1, padx=20, pady=10)
 
-    botaoSair = Button(window, text="Sair", width=8, height=2)
+    botaoSair = Button(window, text="Sair", width=8, height=2, font="arial 12")
     botaoSair.grid(row=6, column=2, padx=20, pady=10) #command=(sair)
 
-    limparButton = Button(window,text="limpar", width=8, height=2)
+    limparButton = Button(window,text="limpar", width=8, height=2, font="arial 12")
     limparButton.grid(row=6, column=3, padx=20, pady=10)
 
-    delButton = Button(window,text="Deletar", width=8, height=2)
+    delButton = Button(window,text="Deletar", width=8, height=2, font="arial 12")
     delButton.grid(row=6, column=4, padx=20, pady=10)
 #Chamando Tela de add Item
 addItem()

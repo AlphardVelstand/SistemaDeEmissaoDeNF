@@ -25,14 +25,17 @@ def adminLogin():
     senhaLabel = Label(window, text="Senha:")
     senhaLabel.grid(row=3, column=2, padx=20, pady=10)
 
-    botaoSair = Button(window, text="Sair")
-    botaoSair.grid(row=4, column=2, padx=20, pady=10) #command=(sair)
-
     usuarioEntry = Entry(window,textvariable=usernameVar)
     usuarioEntry.grid(row=2, column=3, padx=20, pady=10)
 
     senhaEntry = Entry(window, textvariable=passwordVar)
     senhaEntry.grid(row=3, column=3, padx=20, pady=10)
+
+    loginButton = Button(window,text="Acessar", width=10, height=2)
+    loginButton.grid(row=4, column=2, columnspan=2)
+
+    botaoSair = Button(window, text="Sair", width=10, height=2)
+    botaoSair.grid(row=4, column=3, padx=20, pady=10) #command=(sair)
 
 adminLogin()
 #Função sair

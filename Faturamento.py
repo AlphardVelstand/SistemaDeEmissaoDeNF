@@ -2,6 +2,8 @@ import sys
 from tkinter import *
 
 #Definindo nome da Janela exibida
+from tkinter import ttk
+
 window = Tk()
 #Dimensoes da janela
 window.geometry("800x650")
@@ -27,6 +29,10 @@ addQtdVar = StringVar()
 options=["Topo de bolo", "Lembrancinhas", "Rosas de Papel"]
 itemVariable = StringVar()
 itemVariable.set = (options[0])
+
+##############################################################################################
+#Tela aonde aparecem os produtos
+billsTV = ttk.Treeview(height=15, columns=("Prod Nome", "Quantidade", "Valor"))
 
 ##############################################################################################
 def adminLogin():
@@ -82,6 +88,23 @@ def mainWindow():#Tela de adicionar produtos / serviços
     quantidadeEntry = Entry(window, textvariable=quantidadeVar)
     quantidadeEntry.grid(row=2, column=3, pady=(10,0), padx=(5,0))
 ###################################################################################
+#Tree View no Main
+    billLabel = Label(window, text ="Lista de Produtos", font="arial 20", fg="green")
+    billLabel.grid(row=4, column=2)
+
+    billsTV.grid(row=5, column=0, columnspan=5)
+
+    scrollBar = Scrollbar(window, orient="vertical", command=billsTV.yview)
+    scrollBar.grid(row=5, column=4, sticky="NSE")
+
+    billsTV.configure(yscrollcommand=scrollBar.set)
+
+    billsTV.heading('#0', text="Nome do Produto")
+    billsTV.heading('#1', text="Quantidade")
+    billsTV.heading('#2', text="Valor")
+    billsTV.heading('#3', text="Data")
+
+###################################################################################
 def addItem():
     titleLabel = Label(window, text ="ADCIONAR NOVO ITEM", width=40 ,font="arial 20", fg="blue")
     titleLabel.grid(row=0, column=1, columnspan=4, pady=(10,0))
@@ -101,7 +124,7 @@ def addItem():
 
     addQtdLabel = Label(window, text="Quantidade:", font="arial 10")
     addQtdLabel.grid(row=1, column=5, pady=10)
-
+###############################################################################
     nomeProdEntry = Entry(window, textvariable=addItemNomeVar)
     nomeProdEntry.grid(row=2, column=1, padx=20, pady=10)
 
@@ -116,7 +139,7 @@ def addItem():
 
     quantEntry = Entry(window, textvariable=addQtdVar)
     quantEntry.grid(row=2, column=5, padx=8, pady=10)
-
+###########################################################################################
     salvarButton = Button(window,text="Salvar", width=8, height=2, font="arial 12")
     salvarButton.grid(row=6, column=1, padx=20, pady=10)
 
@@ -129,9 +152,9 @@ def addItem():
     delButton = Button(window,text="Deletar", width=8, height=2, font="arial 12")
     delButton.grid(row=6, column=4, padx=20, pady=10)
 #Chamando Tela de add Item
-addItem()
+#addItem()
 #Chamando a tela main
-#mainWindow()
+mainWindow()
 #Chamando a tela login
 #adminLogin()
 #Função sair

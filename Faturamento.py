@@ -89,6 +89,12 @@ def mainWindow():#Tela de adicionar produtos / serviços
     selItemLabel = Label(window,text="Selecionar Item: ", font="arial 12")
     selItemLabel.grid(row=2,column=0, pady=(10,0), padx=(5,0))
 
+    valorProdLabel = Label(window, text="Valor:", font="arial 12")
+    valorProdLabel.grid(row=1, column=2, padx=20, pady=10)
+
+    valorProdEntry = Entry(window, textvariable=addValorVar)
+    valorProdEntry.grid(row=1, column=3, padx=20, pady=10)
+
     quantidadeLabel = Label(window,text="Quantidade:", font="arial 12")
     quantidadeLabel.grid(row=2,column=2, padx=(5,0), pady=(5,0))
 
@@ -159,9 +165,9 @@ def addItem():
     delButton = Button(window,text="Deletar", width=8, height=2, font="arial 12")
     delButton.grid(row=6, column=4, padx=20, pady=10)
 #Chamando Tela de add Item
-addItem()
+#addItem()
 #Chamando a tela main
-#mainWindow()
+mainWindow()
 #Chamando a tela login
 #adminLogin()
 #Função sair

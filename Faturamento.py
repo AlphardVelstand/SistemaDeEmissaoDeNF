@@ -18,17 +18,22 @@ quantidadeVar = StringVar()
 
 #Definindo variavel que armazena os dados do produto no cadastro
 addItemNomeVar = StringVar()
-addValorVar = StringVar()
+#addValorVar = StringVar()
 addTipoVar = StringVar()
 addDataVar = StringVar()
 addTipoServVar = StringVar() #Tipo do serviço selecionado na combo box
 addQtdVar = StringVar()
 
+addValorVar = 1
+rateValor = StringVar()
+rateValor.set("%.2f"%addValorVar)
+
+
 #####################################
-#combobox lista de itens de serviço
+#ComboBox lista de itens de serviço
 options=["Topo de bolo", "Lembrancinhas", "Rosas de Papel"]
 itemVariable = StringVar()
-itemVariable.set = (options[0])
+itemVariable.set(options[0])
 
 ##############################################################################################
 #Tela aonde aparecem os produtos
@@ -154,9 +159,9 @@ def addItem():
     delButton = Button(window,text="Deletar", width=8, height=2, font="arial 12")
     delButton.grid(row=6, column=4, padx=20, pady=10)
 #Chamando Tela de add Item
-#addItem()
+addItem()
 #Chamando a tela main
-mainWindow()
+#mainWindow()
 #Chamando a tela login
 #adminLogin()
 #Função sair

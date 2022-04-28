@@ -63,6 +63,8 @@ def adminLogin():
     botaoSair.grid(row=4, column=3, padx=20, pady=10) #command=(sair)
 ##################################################################################################
 def mainWindow():#Tela de adicionar produtos / serviços
+    window.geometry("830x600")
+
     titleLabel = Label(window, text ="SISTEMA DE FATURAMENTO", font="arial 20", fg="green")
     titleLabel.grid(row=0, column=1, columnspan=3, pady=(10,0))
 
@@ -88,11 +90,11 @@ def mainWindow():#Tela de adicionar produtos / serviços
     quantidadeEntry = Entry(window, textvariable=quantidadeVar)
     quantidadeEntry.grid(row=2, column=3, pady=(10,0), padx=(5,0))
 ###################################################################################
-#Tree View no Main
+#Tree View no mainWindow()
     billLabel = Label(window, text ="Lista de Produtos", font="arial 20", fg="green")
     billLabel.grid(row=4, column=2)
 
-    billsTV.grid(row=5, column=0, columnspan=5)
+    billsTV.grid(row=5, column=0, columnspan=5, padx=(20,0))
 
     scrollBar = Scrollbar(window, orient="vertical", command=billsTV.yview)
     scrollBar.grid(row=5, column=4, sticky="NSE")

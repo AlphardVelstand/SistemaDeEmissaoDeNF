@@ -64,7 +64,7 @@ def adminLogin():
     loginButton = Button(window,text="Acessar", width=8, height=2)
     loginButton.grid(row=4, column=2, padx=20, pady=10)
 
-    botaoSair = Button(window, text="Sair", width=8, height=2)
+    botaoSair = Button(window, text="Sair", width=8, height=2, command=sair)
     botaoSair.grid(row=4, column=3, padx=20, pady=10) #command=(sair)
 ##################################################################################################
 def mainWindow():#Tela de adicionar produtos / serviços
@@ -76,7 +76,7 @@ def mainWindow():#Tela de adicionar produtos / serviços
     addButton = Button(window, text="Add itens", width=15, height=2)
     addButton.grid(row=1, column=0, pady=(10,0), padx=(10,0))
 
-    botaoSair = Button(window, text="Sair", width=15, height=2)
+    botaoSair = Button(window, text="Sair", width=15, height=2, command=sair)
     botaoSair.grid(row=1, column=4, pady=(10,0), padx=(10,0)) #command=(sair)
 
     buttonNf = Button(window, text="Gerar Nf ",width=15, height=2)
@@ -156,22 +156,24 @@ def addItem():
     salvarButton = Button(window,text="Salvar", width=8, height=2, font="arial 12")
     salvarButton.grid(row=6, column=1, padx=20, pady=10)
 
-    botaoSair = Button(window, text="Sair", width=8, height=2, font="arial 12")
-    botaoSair.grid(row=6, column=2, padx=20, pady=10) #command=(sair)
+    botaoSair = Button(window, text="Sair", width=8, height=2, font="arial 12", command=sair)
+    botaoSair.grid(row=6, column=2, padx=20, pady=10)
 
     limparButton = Button(window,text="limpar", width=8, height=2, font="arial 12")
     limparButton.grid(row=6, column=3, padx=20, pady=10)
 
     delButton = Button(window,text="Deletar", width=8, height=2, font="arial 12")
     delButton.grid(row=6, column=4, padx=20, pady=10)
+
+#Função sair
+def sair():
+    sys.exit()
+
 #Chamando Tela de add Item
 #addItem()
 #Chamando a tela main
 mainWindow()
 #Chamando a tela login
 #adminLogin()
-#Função sair
-def sair():
-    sys.exit()
 #Mantendo janela aberta
 window.mainloop()

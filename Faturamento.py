@@ -77,7 +77,7 @@ def mainWindow():#Tela de adicionar produtos / serviços
     addButton.grid(row=1, column=0, pady=(10,0), padx=(10,0))
 
     botaoSair = Button(window, text="Sair", width=15, height=2, command=sair)
-    botaoSair.grid(row=1, column=4, pady=(10,0), padx=(10,0)) #command=(sair)
+    botaoSair.grid(row=1, column=4, pady=(10,0), padx=(10,0))
 
     buttonNf = Button(window, text="Gerar Nf ",width=15, height=2)
     buttonNf.grid(row=2, column=4, pady=(10,0), padx=(10,0))
